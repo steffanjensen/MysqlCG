@@ -1,4 +1,4 @@
-# MysqlCG - Mysql Client Gui0
+# MysqlCG - Mysql Client Gui
 
 We need developers for this script, so you are more than welcome to join us on Github.
 <br /><br />
