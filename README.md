@@ -11,6 +11,7 @@ We need developers for this script, so you are more than welcome to join us on G
 6. Create Database<br>
 7. Backup All Databases<br>
 8. Information<br>
+9. Remove Database<br>
 <br /><br />
 <h3>How to Install:</h3>
 Download: git clone https://github.com/reliefs/MysqlCG.git<br />
