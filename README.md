@@ -17,3 +17,7 @@ We need developers for this script, so you are more than welcome to join us on G
 Download: git clone https://github.com/reliefs/MysqlCG.git<br />
 cd MysqlCG/<br />
 Run: ./mysql.sh <br />
+<br>
+<h3>Demo Screenshot:</h3>
+<img src="https://i.imgur.com/B9q4NU4.png" alt="MysqlCG Demo Screenshot" height="490" width="432">
+
