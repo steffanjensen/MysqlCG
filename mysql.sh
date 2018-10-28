@@ -42,7 +42,7 @@ case $n in
 	1) mysql -u $UserName --password=$PassWord;; 
 	2) mysql -u $UserName --password=$PassWord -e 'show databases;';; 
 	3) echo -e "\nType database name\n"; read database ; mysql -u $UserName --password=$PassWord --database=$database;;
-        4) mysql --version;;
+        4) echo -e "\n";mysql --version;;
 	5) echo -e "\nType database name\n"; read database ; mysql -u $UserName --password=$PassWord --database=$database -e 'show tables;';echo -e "\nShow index from table \n\nType table name\n";read table;mysql -u $UserName --password=$PassWord --database=$database -e 'show index from '$table'';;
 	6) echo -e "\nCreate Database\n"; read NewDb ; mysql -u $UserName --password=$PassWord -e 'CREATE DATABASE '$NewDb';';echo -e "\nDatabase "$Newdb" Created\n";;
 	7) echo -e "\nSelect your option\n1.Backup database\n2.Backup all databases\n"; 
@@ -56,7 +56,7 @@ case $n in
 	break
 done;;
 	8) echo -e "\nRemove Database\n";read rmdatabase;mysql -u $UserName --password=$PassWord --database=$rmdatabase -e "DROP DATABASE "$rmdatabase"";echo -e "\nDatabase Removed\n";; 
-	9) printf "MysqlCG is a Mysql Client Gui. MysqlCG is open-source and free to use and reproduce. I do not take any ownership of this script and you can do with it what you want.";;
+	9) echo -e "\n";printf "MysqlCG is a Mysql Client Gui. MysqlCG is open-source and free to use and reproduce. I do not take any ownership of this script and you can do with it what you want.";;
 	0) exit 0 ;
 esac
 }
