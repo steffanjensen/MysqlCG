@@ -7,10 +7,17 @@
 
 # Clear Terminal and GET MysqlCG Information
 clear
-echo -e "------------------------------------------------------"
-echo -e "---- Welcome To MysqlCG - Mysql Client Gui V 0.01 ----"
-echo -e " Visit our Github: https://github.com/reliefs/MysqlCG "
-echo -e "------------------------------------------------------\n"
+NORMAL=`echo "\033[m"`
+MENU=`echo "\033[36m"` #Blue
+NUMBER=`echo "\033[33m"` #yellow
+FGRED=`echo "\033[41m"`
+RED_TEXT=`echo "\033[31m"`
+ENTER_LINE=`echo "\033[33m"`
+
+echo -e "${RED_TEXT}------------------------------------------------------${NORMAL}"
+echo -e "${RED_TEXT}---- Welcome To MysqlCG - Mysql Client Gui V 0.01 ----${NORMAL}"
+echo -e "${RED_TEXT} Visit our Github: https://github.com/reliefs/MysqlCG ${NORMAL}"
+echo -e "${RED_TEXT}------------------------------------------------------\n${NORMAL}"
 # Type user information
 echo -e "What is your Mysql Username?\n"
 
@@ -22,7 +29,7 @@ read -s PassWord
 
 # Echo Table for Options
 options(){
-echo -e "\nSelect your option\n1. Login to mysql\n2. See Databases\n3. Select Database\n4. Mysql Version\n5. Show Tables\n6. Create Database\n7. Backup Databases\n8. Remove Database\n9. Information\n0. Exit" 
+echo -e "${NUMBER}1.${NORMAL}${MENU}Login to mysql\n${NUMBER}2.${NORMAL}${MENU}See Databases\n${NORMAL}${NUMBER}3.${NORMAL}${MENU}Select Database\n${NORMAL}${NUMBER}4.${NORMAL}${MENU}Mysql Version\n${NORMAL}${NUMBER}5.${NORMAL}${MENU}Show Tables\n${NORMAL}${NUMBER}6.${NORMAL}${MENU}Create Database\n${NORMAL}${NUMBER}7.${NORMAL}${MENU}Backup Databases\n${NORMAL}${NUMBER}8.${NORMAL}${MENU}Remove Database\n${NORMAL}${NUMBER}9.${NORMAL}${MENU}Information\n${NORMAL}${RED_TEXT}0.Exit${NORMAL}\n\n${ENTER_LINE}Select your option${NORMAL}\n"
 
 read n
 
@@ -37,7 +44,6 @@ read n
 # 8. Remove Database
 # 9. Information
 # 0. Exit
-
 case $n in
 	1) mysql -u $UserName --password=$PassWord;; 
 	2) mysql -u $UserName --password=$PassWord -e 'show databases;';; 
