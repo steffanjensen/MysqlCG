@@ -21,11 +21,23 @@ echo -e "\nWhat is your Mysql Password?\n"
 read -s PassWord
 
 # Echo Table for Options
-echo -e "Select your option\n1. Login to mysql\n2. See Databases\n3. Select Database\n4. Mysql Version\n5. Show Tables\n6. Create Database\n7. Backup Databases\n8. Remove Database\n9. Information" 
+options(){
+echo -e "\nSelect your option\n1. Login to mysql\n2. See Databases\n3. Select Database\n4. Mysql Version\n5. Show Tables\n6. Create Database\n7. Backup Databases\n8. Remove Database\n9. Information\n0. Exit" 
 
 read n
 
 # All different options in a menu from 1-9
+# 1. Connect to mysql
+# 2. Mysql Show Databases
+# 3. Select Database
+# 4. Mysql Version Show
+# 5. Show Tables inside database
+# 6. Create Database
+# 7. Backup database and databases
+# 8. Remove Database
+# 9. Information
+# 0. Exit
+
 case $n in
 	1) mysql -u $UserName --password=$PassWord;; 
 	2) mysql -u $UserName --password=$PassWord -e 'show databases;';; 
@@ -38,12 +50,17 @@ case $n in
 		# When option 7) typed new window for Backup options
 		while read dboption ;
 		do case $dboption in
-		1) echo -e "\nType fileName example: mydatabase.sql\n"; read dbfilename ; echo -e "\nType database name\n"; read dbname; mysqldump -u $UserName --password=$PassWord --databases $dbname > $dbfilename;;
+		1) echo -e "\nType fileName example: mydatabase.sql\n"; read dbfilename ; echo -e "\nType database name\n"; read dbname; mysqldump -u $UserName --password=$PassWord --databases $dbname > $dbfilename;echo -e "\nBackup Completed!";;
 		2) echo -e "\nType fileName example: mydatabase.sql\n"; read dbfilename ; mysqldump -u $UserName --password=$PassWord --all-databases > $dbfilename;echo -e "Backup Completed!";; 
 		esac
 	break
 done;;
 	8) echo -e "\nRemove Database\n";read rmdatabase;mysql -u $UserName --password=$PassWord --database=$rmdatabase -e "DROP DATABASE "$rmdatabase"";echo -e "\nDatabase Removed\n";; 
-	9) printf "MysqlCG is a Mysql Client Gui. MysqlCG is open-source and free to use and reproduce. I do not take any ownership of this script and you can do with it what you want.";
-
+	9) printf "MysqlCG is a Mysql Client Gui. MysqlCG is open-source and free to use and reproduce. I do not take any ownership of this script and you can do with it what you want.";;
+	0) exit 0 ;
 esac
+}
+options
+options
+options
+options
