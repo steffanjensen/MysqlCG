@@ -3,7 +3,7 @@
 We need developers for this script, so you are more than welcome to join us on Github.
 <br>
 <h3>Demo Screenshot:</h3>
-<img src="https://i.imgur.com/B9q4NU4.png" alt="MysqlCG Demo Screenshot" height="490" width="432">
+<img src="https://raw.githubusercontent.com/reliefs/MysqlCG/master/demo.png" alt="MysqlCG Demo Screenshot" height="490" width="432">
 <br>
 <h3>What this bash script can do:</h3>
 1. Login to mysql<br>
