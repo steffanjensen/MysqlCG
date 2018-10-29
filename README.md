@@ -3,7 +3,7 @@
 We need developers for this script, so you are more than welcome to join us on Github.
 <br>
 <h3>Demo Screenshot:</h3>
-<img src="http://jj2.dyndns.dk:800/demo.png" alt="MysqlCG Demo Screenshot" height="435" width="407">
+<img src="http://jj2.dyndns.dk:800/demo.png" alt="MysqlCG Demo Screenshot" height="407" width="435">
 <br>
 <h3>What this bash script can do:</h3>
 1. Login to mysql<br>
