@@ -7,29 +7,38 @@
 
 # Clear Terminal and GET MysqlCG Information
 clear
+# Text Color Code
 NORMAL=`echo "\033[m"`
-MENU=`echo "\033[36m"` #Blue
+MENU=`echo "\033[34m"` #blue
 NUMBER=`echo "\033[33m"` #yellow
 FGRED=`echo "\033[41m"`
 RED_TEXT=`echo "\033[31m"`
 ENTER_LINE=`echo "\033[33m"`
+BOLD_TEXT=`echo "\e[1m"`
+T_BLUE=`echo "\e[34m"`
+T_BLINK=`echo "\e[15m"`
+
+
+
+
 
 echo -e "${RED_TEXT}------------------------------------------------------${NORMAL}"
-echo -e "${RED_TEXT}---- Welcome To MysqlCG - Mysql Client Gui V 0.01 ----${NORMAL}"
-echo -e "${RED_TEXT} Visit our Github: https://github.com/reliefs/MysqlCG ${NORMAL}"
+echo -e "${RED_TEXT}---- ${BOLD_TEXT}Welcome To MysqlCG - Mysql Client Gui V 0.01 ${NORMAL}${RED_TEXT}----${NORMAL}"
+echo -e "${T_BLINK}Visit our Github:${NORMAL}${RED_TEXT}https://github.com/reliefs/MysqlCG ${NORMAL}"
 echo -e "${RED_TEXT}------------------------------------------------------\n${NORMAL}"
 # Type user information
-echo -e "What is your Mysql Username?\n"
+
+echo -e "${T_BLUE}What is your Mysql Username?\n${NORMAL}"
 
 read UserName
 
-echo -e "\nWhat is your Mysql Password?\n"
+echo -e "\n${T_BLUE}What is your Mysql Password?\n${NORMAL}"
 
 read -s PassWord
 
 # Echo Table for Options
 options(){
-echo -e "${NUMBER}1.${NORMAL}${MENU}Login to mysql\n${NUMBER}2.${NORMAL}${MENU}See Databases\n${NORMAL}${NUMBER}3.${NORMAL}${MENU}Select Database\n${NORMAL}${NUMBER}4.${NORMAL}${MENU}Mysql Version\n${NORMAL}${NUMBER}5.${NORMAL}${MENU}Show Tables\n${NORMAL}${NUMBER}6.${NORMAL}${MENU}Create Database\n${NORMAL}${NUMBER}7.${NORMAL}${MENU}Backup Databases\n${NORMAL}${NUMBER}8.${NORMAL}${MENU}Remove Database\n${NORMAL}${NUMBER}9.${NORMAL}${MENU}Information\n${NORMAL}${RED_TEXT}0.Exit${NORMAL}\n\n${ENTER_LINE}Select your option${NORMAL}\n"
+echo -e "${NUMBER}1.${NORMAL}${T_BLUE}Login to mysql\n${NORMAL}${NUMBER}2.${NORMAL}${MENU}See Databases\n${NORMAL}${NUMBER}3.${NORMAL}${MENU}Select Database\n${NORMAL}${NUMBER}4.${NORMAL}${MENU}Mysql Version\n${NORMAL}${NUMBER}5.${NORMAL}${MENU}Show Tables\n${NORMAL}${NUMBER}6.${NORMAL}${MENU}Create Database\n${NORMAL}${NUMBER}7.${NORMAL}${MENU}Backup Databases\n${NORMAL}${NUMBER}8.${NORMAL}${MENU}Remove Database\n${NORMAL}${NUMBER}9.${NORMAL}${MENU}Information\n${NORMAL}${RED_TEXT}0.Exit${NORMAL}\n\n${ENTER_LINE}Select your option${NORMAL}\n"
 
 read n
 
@@ -46,7 +55,7 @@ read n
 # 0. Exit
 case $n in
 	1) mysql -u $UserName --password=$PassWord;; 
-	2) mysql -u $UserName --password=$PassWord -e 'show databases;';; 
+	2) echo -e "${MENU}";mysql -u $UserName --password=$PassWord -e 'show databases;';echo -e "${NORMAL}";; 
 	3) echo -e "\nType database name\n"; read database ; mysql -u $UserName --password=$PassWord --database=$database;;
         4) echo -e "\n";mysql --version;;
 	5) echo -e "\nType database name\n"; read database ; mysql -u $UserName --password=$PassWord --database=$database -e 'show tables;';echo -e "\nShow index from table \n\nType table name\n";read table;mysql -u $UserName --password=$PassWord --database=$database -e 'show index from '$table'';;
@@ -67,6 +76,10 @@ done;;
 esac
 }
 options
+sleep 5
 options
+sleep 5
 options
+sleep 5
 options
+sleep 5
