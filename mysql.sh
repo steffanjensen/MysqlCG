@@ -27,7 +27,7 @@ echo -e "${RED_TEXT}---- ${BOLD_TEXT}Welcome To MysqlCG - Mysql Client Gui V 0.0
 echo -e "${T_BLINK}Visit our Github:${NORMAL}${RED_TEXT}https://github.com/reliefs/MysqlCG ${NORMAL}"
 echo -e "${RED_TEXT}------------------------------------------------------\n${NORMAL}"
 
-# Type user information
+# Type user information for Mysql
 echo -e "${T_BLUE}What is your Mysql Username?\n${NORMAL}"
 
 read UserName
@@ -57,7 +57,7 @@ case $n in
 	1) mysql -u $UserName --password=$PassWord;; 
 	2) echo -e "${MENU}";mysql -u $UserName --password=$PassWord -e 'show databases;';echo -e "${NORMAL}";; 
 	3) echo -e "\nType database name\n"; read database ; mysql -u $UserName --password=$PassWord --database=$database;;
-        4) echo -e "\n";mysql --version;echo -e "\n";;
+        4) echo -e "\n${MENU}";mysql --version;echo -e "${NORMAL}\n";;
 	5) echo -e "\nType database name\n"; read database ; mysql -u $UserName --password=$PassWord --database=$database -e 'show tables;';echo -e "\nShow index from table \n\nType table name\n";read table;mysql -u $UserName --password=$PassWord --database=$database -e 'show index from '$table'';;
 	6) echo -e "\nCreate Database\n"; read NewDb ; mysql -u $UserName --password=$PassWord -e 'CREATE DATABASE '$NewDb';';echo -e "\nDatabase "$Newdb" Created\n";;
 	7) echo -e "\nSelect your option\n1.Backup database\n2.Backup all databases\n"; 
@@ -66,7 +66,7 @@ case $n in
 		while read dboption ;
 		do case $dboption in
 		1) echo -e "\nType fileName example: mydatabase.sql\n"; read dbfilename ; echo -e "\nType database name\n"; read dbname; mysqldump -u $UserName --password=$PassWord --databases $dbname > $dbfilename;echo -e "\nBackup Completed!\n";;
-		2) echo -e "\nType fileName example: mydatabase.sql\n"; read dbfilename ; mysqldump -u $UserName --password=$PassWord --all-databases > $dbfilename;echo -e "Backup Completed!";; 
+		2) echo -e "\nType fileName example: mydatabase.sql\n"; read dbfilename ; mysqldump -u $UserName --password=$PassWord --all-databases > $dbfilename;echo -e "\nBackup Completed!\n";; 
 		esac
 	break
 done;;
