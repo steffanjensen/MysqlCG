@@ -74,12 +74,6 @@ done;;
 	9) echo -e "\n";printf "MysqlCG is a Mysql Client Gui. MysqlCG is open-source and free to use and reproduce. I do not take any ownership of this script and you can do with it what you want.";;
 	0) exit 0 ;
 esac
+options
 }
 options
-sleep 5
-options
-sleep 5
-options
-sleep 5
-options
-sleep 5
